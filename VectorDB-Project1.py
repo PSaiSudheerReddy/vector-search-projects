@@ -22,7 +22,12 @@ def generate_embedding(text: str) -> list[float]:
     raise ValueError(f"Request failed with status code {response.status_code}: {response.text}")
   return response.json()
 
+# print(generate_embedding("Happy face is awesome"))
 
+# to generate the vector embedding for the field of collection in mongodb not required everytime
+# for doc in collection.find({'plot':{"$exists": True}}).limit(100):
+#   doc['plot_embedding_hf'] = generate_embedding(doc['plot'])
+#   collection.replace_one({'_id': doc['_id']}, doc)
 
 
 query = "Comedy characters"
